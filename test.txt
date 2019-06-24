@@ -1,0 +1,20 @@
+<button class="btn btn-danger" id="syncPaycomData"><?= $status ?></button>
+<span class="loader" id="loader-1" style = "display:none"></span>
+$("#syncPaycomData").click(function(){
+            $('#syncPaycomData').hide();
+            $('#loader-1').show();
+            $.ajax({
+                type: "POST",
+                url: "/parentcompany/delete?id="+parent_id,
+                data: "",
+                success: function(res){
+                    $('#loader-1').hide();
+                    //$('#syncPaycomData').show();
+                    window.location.href = "/parentcompany";
+                },
+                error: function() {
+                    console.log("error here");
+                }
+            });
+            
+        });
